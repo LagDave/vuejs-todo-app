@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-="X-UA-Compatible" content="ie=edge">
+    <title>Vue.JS ToDo Application</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+</head>
+
+<body>
+    <br><br>
+    <div id="app" class='container'>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class='text-center'>VUE.JS TODO APP</h3>
+                    <br>
+                    <div style='border:none' class="card card-body shadow">
+                        <input v-model='todo' placeholder='Create a new ToDo' type="text" class="form-control"
+                            id='input'>
+                        <button style='width:100px;' v-on:click='save(todo)' class="btn btn-primary mt-2">Save</button>
+                    </div>
+                    <br><br>
+                    <div class="card card-body shadow" style='border:none'>
+                        <p>Finished {{todos.filter(todo => todo.done == true).length}} out of {{todos.length}}</p>
+                        <hr>
+                        <ol>
+                            <li v-on:click='revert(todo.id)' class='todo-item' v-for="todo in todos"
+                                v-if="todo.done == true">
+                                <span class="todo-done">{{todo.text}}</span>
+                            </li>
+                            <li v-on:click='revert(todo.id)' class='todo-item' v-else><span
+                                    class="">{{todo.text}}</span>
+                            </li>
+                        </ol>
+                    </div>
+                    <br><br>
+                    <small class="text-muted">&copy; 2019 Rustine Dave</small>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="assets/js/base.js"></script>
+</body>
+
+</html>
