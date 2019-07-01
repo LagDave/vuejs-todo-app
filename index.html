@@ -19,7 +19,7 @@
                 <h1 class='text-center'>VUE.JS TODO APP</h3>
                     <br>
                     <div style='border:none' class="card card-body shadow">
-                        <input v-model='todo' placeholder='Create a new ToDo' type="text" class="form-control"
+                        <input v-on:keyup.enter="save(todo)" v-model='todo' placeholder='Create a new ToDo' type="text" class="form-control"
                             id='input'>
                         <button style='width:100px;' v-on:click='save(todo)' class="btn btn-primary mt-2">Save</button>
                     </div>
